@@ -4,8 +4,6 @@ Library  requestdata.py
 
 *** Variables ***
 
-
-
 *** Keywords ***
 ABC123  
     getrequestdata
@@ -14,18 +12,17 @@ ABC123
 
 *** Test Cases ***
 Open Google
-    Open Browser  https://shopee.tw/m/topshop  chrome
+    Open Browser  https://shopee.tw/m/topshop  Chrome  executable_path=./chromedriver
     Maximize Browser Window
-
+    
 # CloseInf
     # Click Element  //*[@id="gb"]/div/div[1]/div/div[2]/a
     
 RequestData
     ABC123
 
-
 GetData
-    ${text1}=  Get Text  xpath=//*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div[2]/div/a[1]
+    ${text1}=  Get Text  //*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/a[1]
  #   ${text2}=  Get Text  xpath=//*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div[2]/div/a[2]
  #   Should Be Equal As Strings  ${text1}  ${text2}
 

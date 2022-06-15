@@ -1,0 +1,10 @@
+chromedriver
+
+selenium-screenshot*
+
+*.pyc
+
+*.html
+*.xml
+
+.DS_Store
