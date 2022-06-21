@@ -8,3 +8,5 @@ selenium-screenshot*
 *.xml
 
 .DS_Store
+
+__pycache__/

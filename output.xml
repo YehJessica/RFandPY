@@ -1,69 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.6 on win32)" generated="20220621 20:17:49.515" rpa="false" schemaversion="3">
-<suite id="s1" name="Frist" source="D:\learning\python_test\web_test\robot_webtest\frist.robot">
-<test id="s1-t1" name="Open Google" line="18">
+<robot generator="Robot 5.0.1 (Python 3.9.12 on darwin)" generated="20220621 09:59:34.880" rpa="false" schemaversion="3">
+<suite id="s1" name="Frist" source="/Users/crypto/git/github/other/RFandPY/frist.robot">
+<test id="s1-t1" name="Open Google" line="19">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>https://shopee.tw/m/topshop</arg>
-<arg>chrome</arg>
+<arg>Chrome</arg>
+<arg>executable_path=./chromedriver</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220621 20:17:49.699" level="INFO">Opening browser 'chrome' to base url 'https://shopee.tw/m/topshop'.</msg>
-<status status="PASS" starttime="20220621 20:17:49.698" endtime="20220621 20:17:52.189"/>
+<msg timestamp="20220621 09:59:34.989" level="INFO">Opening browser 'Chrome' to base url 'https://shopee.tw/m/topshop'.</msg>
+<status status="PASS" starttime="20220621 09:59:34.989" endtime="20220621 09:59:41.288"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220621 20:17:52.190" endtime="20220621 20:17:52.308"/>
+<status status="PASS" starttime="20220621 09:59:41.288" endtime="20220621 09:59:41.410"/>
 </kw>
-<status status="PASS" starttime="20220621 20:17:49.698" endtime="20220621 20:17:52.308"/>
+<status status="PASS" starttime="20220621 09:59:34.989" endtime="20220621 09:59:41.410"/>
 </test>
-<test id="s1-t2" name="GetDataTest_1" line="25">
+<test id="s1-t2" name="GetDataTest_1" line="26">
 <kw name="Get WebElement" library="SeleniumLibrary">
 <var>${text1_xpath}</var>
 <arg>//*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/a[1]</arg>
 <doc>Returns the first WebElement matching the given ``locator``.</doc>
-<msg timestamp="20220621 20:17:52.354" level="INFO">${text1_xpath} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7ef9e8a369ec505c500beb03b4830741", element="9d8e86dd-d838-4bca-bf5e-ebb45e3d9a50")&gt;</msg>
-<status status="PASS" starttime="20220621 20:17:52.311" endtime="20220621 20:17:52.354"/>
+<msg timestamp="20220621 09:59:41.418" level="INFO">${text1_xpath} = &lt;selenium.webdriver.remote.webelement.WebElement (session="5ea407fdaa71469bbe85a9ca17aa8ddb", element="ef95f924-94f0-43f2-a31f-0bd842bb1870")&gt;</msg>
+<status status="PASS" starttime="20220621 09:59:41.411" endtime="20220621 09:59:41.418"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${text1_xpath}</arg>
 <arg>15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220621 20:17:52.355" endtime="20220621 20:17:52.937"/>
+<status status="PASS" starttime="20220621 09:59:41.418" endtime="20220621 09:59:41.432"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${text1}</var>
 <arg>${text1_xpath}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20220621 20:17:52.964" level="INFO">${text1} = 口罩</msg>
-<status status="PASS" starttime="20220621 20:17:52.937" endtime="20220621 20:17:52.964"/>
+<msg timestamp="20220621 09:59:41.441" level="INFO">${text1} = 口罩</msg>
+<status status="PASS" starttime="20220621 09:59:41.432" endtime="20220621 09:59:41.441"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${text1}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220621 20:17:52.965" level="INFO">口罩</msg>
-<status status="PASS" starttime="20220621 20:17:52.964" endtime="20220621 20:17:52.965"/>
+<msg timestamp="20220621 09:59:41.441" level="INFO">口罩</msg>
+<status status="PASS" starttime="20220621 09:59:41.441" endtime="20220621 09:59:41.441"/>
 </kw>
-<status status="PASS" starttime="20220621 20:17:52.310" endtime="20220621 20:17:52.965"/>
+<status status="PASS" starttime="20220621 09:59:41.411" endtime="20220621 09:59:41.441"/>
 </test>
-<test id="s1-t3" name="CompareData_PY&amp;RF" line="44">
+<test id="s1-t3" name="CompareData_PY&amp;RF" line="45">
+<kw name="webdata_fromrequests">
+<var>${value}</var>
+<kw name="Getrequestdata" library="requestdata">
+<var>${result}</var>
+<msg timestamp="20220621 09:59:41.564" level="INFO">${result} = ['口罩', '手機殼', '小米', '拖鞋', '洋裝', '水壺', '酒精', '雨衣']</msg>
+<status status="PASS" starttime="20220621 09:59:41.442" endtime="20220621 09:59:41.564"/>
+</kw>
+<msg timestamp="20220621 09:59:41.564" level="INFO">${value} = ['口罩', '手機殼', '小米', '拖鞋', '洋裝', '水壺', '酒精', '雨衣']</msg>
+<status status="PASS" starttime="20220621 09:59:41.442" endtime="20220621 09:59:41.564"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${value}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.564" level="INFO">['口罩', '手機殼', '小米', '拖鞋', '洋裝', '水壺', '酒精', '雨衣']</msg>
+<status status="PASS" starttime="20220621 09:59:41.564" endtime="20220621 09:59:41.564"/>
+</kw>
 <kw name="Get WebElements" library="SeleniumLibrary">
 <var>${textALL_xpath}</var>
 <arg>//*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<msg timestamp="20220621 20:17:53.010" level="INFO">${textALL_xpath} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="7ef9e8a369ec505c500beb03b4830741", element="a879ebf3-591a-4321-a721-e8d49c10fbab")&gt;]</msg>
-<status status="PASS" starttime="20220621 20:17:52.968" endtime="20220621 20:17:53.010"/>
+<msg timestamp="20220621 09:59:41.571" level="INFO">${textALL_xpath} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="5ea407fdaa71469bbe85a9ca17aa8ddb", element="f38401db-fc77-48eb-9f1f-fa1ec13e5c1c")&gt;]</msg>
+<status status="PASS" starttime="20220621 09:59:41.564" endtime="20220621 09:59:41.571"/>
 </kw>
 <kw name="Get WebElements" library="SeleniumLibrary">
 <var>${text3}</var>
-<arg>//*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/a[*]</arg>
+<arg>//*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/*</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<msg timestamp="20220621 20:17:53.020" level="INFO">${text3} = []</msg>
-<status status="PASS" starttime="20220621 20:17:53.011" endtime="20220621 20:17:53.020"/>
+<msg timestamp="20220621 09:59:41.577" level="INFO">${text3} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="5ea407fdaa71469bbe85a9ca17aa8ddb", element="ef95f924-94f0-43f2-a31f-0bd842bb1870")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20220621 09:59:41.571" endtime="20220621 09:59:41.577"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${textALL_RF}</var>
 <arg>${textALL_xpath}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20220621 20:17:53.033" level="INFO">${textALL_RF} = 口罩
+<msg timestamp="20220621 09:59:41.586" level="INFO">${textALL_RF} = 口罩
 手機殼
 小米
 拖鞋
@@ -71,12 +88,12 @@
 水壺
 酒精
 雨衣</msg>
-<status status="PASS" starttime="20220621 20:17:53.021" endtime="20220621 20:17:53.033"/>
+<status status="PASS" starttime="20220621 09:59:41.577" endtime="20220621 09:59:41.586"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${textALL_RF}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220621 20:17:53.034" level="INFO">口罩
+<msg timestamp="20220621 09:59:41.586" level="INFO">口罩
 手機殼
 小米
 拖鞋
@@ -84,59 +101,173 @@
 水壺
 酒精
 雨衣</msg>
-<status status="PASS" starttime="20220621 20:17:53.034" endtime="20220621 20:17:53.034"/>
+<status status="PASS" starttime="20220621 09:59:41.586" endtime="20220621 09:59:41.586"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${text3_len}</var>
 <arg>${text3}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20220621 20:17:53.035" level="INFO">Length is 0</msg>
-<msg timestamp="20220621 20:17:53.035" level="INFO">${text3_len} = 0</msg>
-<status status="PASS" starttime="20220621 20:17:53.035" endtime="20220621 20:17:53.035"/>
+<msg timestamp="20220621 09:59:41.586" level="INFO">Length is 8</msg>
+<msg timestamp="20220621 09:59:41.586" level="INFO">${text3_len} = 8</msg>
+<status status="PASS" starttime="20220621 09:59:41.586" endtime="20220621 09:59:41.586"/>
 </kw>
 <for flavor="IN RANGE">
 <var>${i}</var>
 <value>${text3_len}</value>
 <iter>
-<var name="${i}"/>
+<var name="${i}">0</var>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${text3_text}</var>
 <arg>${text3}[${i}]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20220621 20:17:53.035" endtime="20220621 20:17:53.035"/>
+<msg timestamp="20220621 09:59:41.590" level="INFO">${text3_text} = 口罩</msg>
+<status status="PASS" starttime="20220621 09:59:41.587" endtime="20220621 09:59:41.590"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${text3_text}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20220621 20:17:53.035" endtime="20220621 20:17:53.035"/>
+<msg timestamp="20220621 09:59:41.590" level="INFO">口罩</msg>
+<status status="PASS" starttime="20220621 09:59:41.590" endtime="20220621 09:59:41.590"/>
 </kw>
-<status status="NOT RUN" starttime="20220621 20:17:53.035" endtime="20220621 20:17:53.035"/>
+<status status="PASS" starttime="20220621 09:59:41.587" endtime="20220621 09:59:41.590"/>
 </iter>
-<status status="NOT RUN" starttime="20220621 20:17:53.035" endtime="20220621 20:17:53.035"/>
-</for>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${textALL_RF}</arg>
-<arg>${value}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20220621 20:17:53.036" level="FAIL">Variable '${value}' not found.</msg>
-<status status="FAIL" starttime="20220621 20:17:53.036" endtime="20220621 20:17:53.036"/>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text3_text}</var>
+<arg>${text3}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220621 09:59:41.600" level="INFO">${text3_text} = 手機殼</msg>
+<status status="PASS" starttime="20220621 09:59:41.590" endtime="20220621 09:59:41.600"/>
 </kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text3_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.601" level="INFO">手機殼</msg>
+<status status="PASS" starttime="20220621 09:59:41.600" endtime="20220621 09:59:41.601"/>
+</kw>
+<status status="PASS" starttime="20220621 09:59:41.590" endtime="20220621 09:59:41.601"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text3_text}</var>
+<arg>${text3}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220621 09:59:41.607" level="INFO">${text3_text} = 小米</msg>
+<status status="PASS" starttime="20220621 09:59:41.601" endtime="20220621 09:59:41.607"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text3_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.607" level="INFO">小米</msg>
+<status status="PASS" starttime="20220621 09:59:41.607" endtime="20220621 09:59:41.607"/>
+</kw>
+<status status="PASS" starttime="20220621 09:59:41.601" endtime="20220621 09:59:41.618"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text3_text}</var>
+<arg>${text3}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220621 09:59:41.624" level="INFO">${text3_text} = 拖鞋</msg>
+<status status="PASS" starttime="20220621 09:59:41.618" endtime="20220621 09:59:41.624"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text3_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.624" level="INFO">拖鞋</msg>
+<status status="PASS" starttime="20220621 09:59:41.624" endtime="20220621 09:59:41.624"/>
+</kw>
+<status status="PASS" starttime="20220621 09:59:41.618" endtime="20220621 09:59:41.624"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text3_text}</var>
+<arg>${text3}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220621 09:59:41.630" level="INFO">${text3_text} = 洋裝</msg>
+<status status="PASS" starttime="20220621 09:59:41.624" endtime="20220621 09:59:41.630"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text3_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.630" level="INFO">洋裝</msg>
+<status status="PASS" starttime="20220621 09:59:41.630" endtime="20220621 09:59:41.630"/>
+</kw>
+<status status="PASS" starttime="20220621 09:59:41.624" endtime="20220621 09:59:41.630"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text3_text}</var>
+<arg>${text3}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220621 09:59:41.637" level="INFO">${text3_text} = 水壺</msg>
+<status status="PASS" starttime="20220621 09:59:41.630" endtime="20220621 09:59:41.637"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text3_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.637" level="INFO">水壺</msg>
+<status status="PASS" starttime="20220621 09:59:41.637" endtime="20220621 09:59:41.637"/>
+</kw>
+<status status="PASS" starttime="20220621 09:59:41.630" endtime="20220621 09:59:41.637"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text3_text}</var>
+<arg>${text3}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220621 09:59:41.642" level="INFO">${text3_text} = 酒精</msg>
+<status status="PASS" starttime="20220621 09:59:41.637" endtime="20220621 09:59:41.642"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text3_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.643" level="INFO">酒精</msg>
+<status status="PASS" starttime="20220621 09:59:41.643" endtime="20220621 09:59:41.643"/>
+</kw>
+<status status="PASS" starttime="20220621 09:59:41.637" endtime="20220621 09:59:41.643"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text3_text}</var>
+<arg>${text3}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220621 09:59:41.648" level="INFO">${text3_text} = 雨衣</msg>
+<status status="PASS" starttime="20220621 09:59:41.643" endtime="20220621 09:59:41.648"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text3_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220621 09:59:41.648" level="INFO">雨衣</msg>
+<status status="PASS" starttime="20220621 09:59:41.648" endtime="20220621 09:59:41.648"/>
+</kw>
+<status status="PASS" starttime="20220621 09:59:41.643" endtime="20220621 09:59:41.648"/>
+</iter>
+<status status="PASS" starttime="20220621 09:59:41.586" endtime="20220621 09:59:41.648"/>
+</for>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" starttime="20220621 20:17:53.037" endtime="20220621 20:17:53.037"/>
+<status status="PASS" starttime="20220621 09:59:41.649" endtime="20220621 09:59:41.770"/>
 </kw>
-<status status="FAIL" starttime="20220621 20:17:52.967" endtime="20220621 20:17:53.037">Variable '${value}' not found.</status>
+<status status="PASS" starttime="20220621 09:59:41.441" endtime="20220621 09:59:41.770"/>
 </test>
-<status status="FAIL" starttime="20220621 20:17:49.517" endtime="20220621 20:17:53.038"/>
+<status status="PASS" starttime="20220621 09:59:34.881" endtime="20220621 09:59:41.770"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="1" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="1" skip="0" id="s1" name="Frist">Frist</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Frist">Frist</stat>
 </suite>
 </statistics>
 <errors>

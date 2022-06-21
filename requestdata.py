@@ -1,7 +1,7 @@
 import requests
 
 def getrequestdata():
-    respones = requests.get('https://shopee.tw/api/v4/search/trending_search?bundle=popsearch&offset=0',verify=True )
+    respones = requests.get('https://shopee.tw/api/v4/search/trending_search?bundle=popsearch&offset=0', verify=True)
     obj=respones.json()
 #   print(type(obj)) #dict
 #   print(type(obj['data'])) #'dict'
@@ -10,8 +10,9 @@ def getrequestdata():
 #    print(dric['querys'])
 #   print(type(dric['querys'][0])) #'dict'
     count=8
-    for i in range(count):
-    #   aaa= dric['querys'][i]['text']
-      # return aaa
-        print(dric['querys'][i]['text'])
 
+    results = []
+
+    for i in range(count):
+      results.append(dric['querys'][i]['text'])
+    return results

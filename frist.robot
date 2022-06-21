@@ -12,7 +12,8 @@ Variables  requestdata.py
 
 *** Keywords ***
 webdata_fromrequests  
-    getrequestdata
+    ${result}=  getrequestdata
+    [return]  ${result}
 
 *** Test Cases ***
 Open Google
@@ -43,11 +44,11 @@ GetDataTest_1
 
 CompareData_PY&RF
 #requests===================================================
- #   ${value}  webdata_fromrequests
-  #    Log  ${value}
+   ${value}  webdata_fromrequests
+    Log  ${value}
 #selenium===================================================
    ${textALL_xpath}=  Get WebElements  //*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div
-   ${text3}=  Get WebElements  //*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/a[*] 
+   ${text3}=  Get WebElements  //*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/*
 #    ${getcount_RF}=  Get Element Count  //*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/a[1] #result : 1
 #    ${getcount_RF}=  Get Element Count  ${textALL_xpath} 
     #TypeError: object of type 'WebElement' has no len()
@@ -65,6 +66,6 @@ CompareData_PY&RF
 
 #    ${text_len}=  Get length  ${textALL_RF}
  #   Log  ${text_len}
-    Should Be Equal As Strings  ${textALL_RF}   ${value}
+    # Should Be Equal As Strings  ${textALL_RF}   ${value}
     Close Browser
 
