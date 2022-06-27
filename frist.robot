@@ -3,6 +3,8 @@ Library  SeleniumLibrary
 Library  requestdata.py
 Library    String
 Variables  requestdata.py
+Library    Collections 
+#Append To List
 
 *** Variables ***
 
@@ -13,11 +15,12 @@ Variables  requestdata.py
 *** Keywords ***
 webdata_fromrequests  
     ${result}=  getrequestdata
-    [return]  ${result}
+    [return]  ${result}   
 
 *** Test Cases ***
 Open Google
-    Open Browser  https://shopee.tw/m/topshop  Chrome  executable_path=./chromedriver
+    Open Browser  https://shopee.tw/m/topshop  Chrome
+#    Open Browser  https://shopee.tw/m/topshop  Chrome  executable_path=./chromedriver
     Maximize Browser Window
 
 # CloseInf 
@@ -39,7 +42,7 @@ GetDataTest_1
 #   ${item}  Set Variable  Stackoverflow
 
 #    IF  "${text1}" == "雨衣"
- #     Log  This is correct.
+#     Log  This is correct.
  #   END
 
 CompareData_PY&RF
@@ -59,13 +62,17 @@ CompareData_PY&RF
      #口罩 手機殼 雨衣 拖鞋 洋裝 酒精 小米 水壺
 
     ${text3_len}=  Get length  ${text3}
+    ${text3_list}=  Create List  
     FOR  ${i}  IN RANGE  ${text3_len}
-        ${text3_text}=  Get Text  ${text3}[${i}]
-        Log  ${text3_text}
+        ${text3_text}=  Get Text  ${text3}[${i}]  
+ #      Log  ${text3_text}   
+        Append To List  ${text3_list}  ${text3_text}
+        Log  ${text3_list}
     END
+ 
 
 #    ${text_len}=  Get length  ${textALL_RF}
- #   Log  ${text_len}
-    # Should Be Equal As Strings  ${textALL_RF}   ${value}
+#    Log  ${text_len}
+    Should Be Equal As Strings  ${text3_list}  ${value}
     Close Browser
 
