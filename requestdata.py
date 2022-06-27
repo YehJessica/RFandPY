@@ -11,6 +11,7 @@ def getrequestdata():
 #   print(type(dric['querys']))#'list''
 #   print(dric['querys'])
 #   print(type(dric['querys'][0])) #'dict'
+# testPR
     count = 8
 
     results = []
