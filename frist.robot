@@ -4,7 +4,9 @@ Library      requestdata.py
 Library      String
 Variables    requestdata.py
 Library      Collections 
-#Append To List
+
+Suite Setup  Open Browser  https://shopee.tw/m/topshop  Chrome
+Suite Teardown    Close Browser
 
 *** Variables ***
 
@@ -15,13 +17,9 @@ webdata_fromrequests
     [return]      ${result}         
 
 *** Test Cases ***
-Open Google
-    Open Browser               https://shopee.tw/m/topshop    Chrome
-  #   Open Browser               https://shopee.tw/m/topshop    Chrome    executable_path=./chromedriver
-    Maximize Browser Window
-
-
 Get Hot Searches Frist Item 
+    Maximize Browser Window
+    sleep  5s
 #Test PASS===================================================
     ${text1_xpath}=                  Get WebElement    //*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/a[1]
     Wait Until Element Is Visible    ${text1_xpath}    15s
@@ -36,7 +34,7 @@ Verify Hot Searches All Item
 
 #selenium===================================================
     ${textALL_xpath}=    Get WebElements    //*[@id="main"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/header/div[2]/div/div[1]/div[2]/div/*
-    ${textALL_len}=     Get length       ${textALL_xpath}
+    ${textALL_len}=    Get length       ${textALL_xpath}
 
     ${textALL_list}=    Create List      
     FOR               ${i}             IN RANGE          ${textALL_len}
@@ -46,6 +44,6 @@ Verify Hot Searches All Item
     Log               ${textALL_list}
     END
     
-     Should Be Equal As Strings    ${textALL_list}    ${value}
-     Close Browser
+    Should Be Equal As Strings    ${textALL_list}    ${value}
+
 
